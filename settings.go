@@ -18,7 +18,7 @@ import (
 const ScopeGlobal = "global"
 
 func init() {
-	togo.RegisterProviderFunc("settings", togo.PriorityService, func(k *togo.Kernel) error {
+	togo.RegisterProviderFunc("settings", togo.PriorityLate+10, func(k *togo.Kernel) error {
 		db, err := k.SQL(context.Background())
 		if err != nil {
 			return err
